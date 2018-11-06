@@ -13,12 +13,16 @@
             pecas = new Peca[linhas, colunas];
         }
 
-        public Peca peca(int linha, int coluna)
+        public Peca peca(int linha, int coluna) // método para Tela.cs poder acessar Peca
         {
             return pecas[linha, coluna];
         }
 
-
+        public void colocarPeca(Peca p, Posicao pos)
+        {
+            pecas[pos.linha, pos.coluna] = p; // colocando peca p na posicao
+            p.posicao = pos; // informar a posicao da peca p
+        }
 
 
 
