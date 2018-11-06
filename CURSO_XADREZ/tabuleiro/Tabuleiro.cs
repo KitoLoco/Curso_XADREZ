@@ -18,12 +18,47 @@
             return pecas[linha, coluna];
         }
 
+        public Peca peca(Posicao pos) // sobrecarga
+        {
+            return pecas[pos.linha, pos.coluna];
+        }
+
+        public bool existePeca(Posicao pos) // metodo para verificar se existe Peca na posicao
+        {
+            validarPosicao(pos);
+            return peca(pos) != null;
+        }
+
         public void colocarPeca(Peca p, Posicao pos)
         {
+            if (existePeca(pos))
+            {
+                throw new TabuleiroException("Já existe uma peça nessa posição!");
+            }
             pecas[pos.linha, pos.coluna] = p; // colocando peca p na posicao
             p.posicao = pos; // informar a posicao da peca p
         }
 
+        public bool posicaoValida(Posicao pos) // método para verificar se é uma posicao válida
+        {
+            if (pos.linha < 0 || pos.linha >= linhas || pos.coluna<0 || pos.coluna >= colunas)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public void validarPosicao(Posicao pos)
+        {
+            if (!posicaoValida(pos))
+            {
+                throw new TabuleiroException("Posição Inválida!");
+            }
+
+        }
 
 
 
