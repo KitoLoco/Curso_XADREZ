@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace tabuleiro // mudou o nome somente para tabuleiro, nao sei pq
+namespace tabuleiro // mudou o nome somente para tabuleiro para facilitar deixando um nome curto
 {
     class Posicao
     {
@@ -12,6 +12,12 @@ namespace tabuleiro // mudou o nome somente para tabuleiro, nao sei pq
         public int coluna { get; set; }
 
         public Posicao(int linha, int coluna)
+        {
+            this.linha = linha;
+            this.coluna = coluna;
+        }
+
+        public void definirValores(int linha, int coluna)
         {
             this.linha = linha;
             this.coluna = coluna;
